@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Vessel Predictions</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
+.w3-row-padding img {margin-bottom: 12px}
+/* Set the width of the sidebar to 120px */
+.w3-sidebar {width: 120px;background: #222;}
+/* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
+#main {margin-left: 120px}
+/* Remove margins from "page content" on small screens */
+@media only screen and (max-width: 600px) {#main {margin-left: 0}}
+</style>
+</head>
+<body class="w3-black">
+
+<!-- Icon Bar (Sidebar - hidden on small screens) -->
+<nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
+  <!-- Avatar image in top left corner -->
+  <img src="p\vecteezy_a-large-container-cargo-ship-can-be-seen-traveling-across_27100020.jpg" style="width:100%">
+  <a href="#" class="w3-bar-item w3-button w3-padding-large w3-black">
+    <i class="fa fa-home w3-xxlarge"></i>
+    <p>HOME</p>
+  </a>
+  <a href="#about" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+    <i class="fa fa-cog w3-xxlarge"></i>
+    <p>Predictive Maintenance</p>
+  </a>
+  <a href="#photos" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+    <i class="fa fa-bolt w3-xxlarge" style="margin-left: 10px;"></i> 
+        <p>Excess Energy Consumption</p>
+  </a>
+  <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+    <i class="fa fa-map-marker w3-xxlarge" style="margin-left: 10px;"></i>
+        <p>Route Optimization</p>
+  </a>
+</nav>
+
+<!-- Navbar on small screens (Hidden on medium and large screens) -->
+<div class="w3-top w3-hide-large w3-hide-medium" id="myNavbar">
+  <div class="w3-bar w3-black w3-opacity w3-hover-opacity-off w3-center w3-small">
+    <a href="#" class="w3-bar-item w3-button" style="width:25% !important">HOME</a>
+    <a href="#about" class="w3-bar-item w3-button" style="width:25% !important">ABOUT</a>
+    <a href="#photos" class="w3-bar-item w3-button" style="width:25% !important">PHOTOS</a>
+    <a href="#contact" class="w3-bar-item w3-button" style="width:25% !important">CONTACT</a>
+  </div>
+</div>
+
+<!-- Page Content -->
+<div class="w3-padding-large" id="main">
+  <!-- Header/Home -->
+  <header class="w3-container w3-padding-32 w3-center w3-black" id="home">
+    <h1 class="w3-jumbo"><span class="w3-hide-small"></span>Welcome</h1>
+    <h4>Vessel Predictions</h4>
+    <img src="p\vecteezy_a-large-container-cargo-ship-can-be-seen-traveling-across_27100020.jpg" alt="boy" class="w3-image" width="992" height="1108">
+  </header>
+
+  <!-- About Section -->
+  <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="about">
+    <h2 class="w3-text-light-grey">Predctive Maintenance</h2>
+    <hr style="width:200px" class="w3-opacity">
+    <h5 class="w3-text-light-grey">This is used to predict the maintenance of the vessel accurately.Give vessel's current info like lever position,
+        gas turbine and shaft torque etc, we predict and tell you the condition of vessel.We only indicate vessel is in good condition when the output 
+        is exactly above the safe condition.The model predicting the output is trained with more than 10,000 cases.Hence it gives you accurate 
+        answers.</h5>
+        <form id="maintenanceForm">
+          <div class="form-group">
+              <label for="lever_position">Lever position</label>
+              <input type="text" id="lever_position" name="lever_position" required>
+          </div>
+          <div class="form-group">
+              <label for="ship_speed">Ship speed (v)</label>
+              <input type="text" id="ship_speed" name="ship_speed" required>
+          </div>
+          <div class="form-group">
+              <label for="gtt">Gas Turbine (GT) shaft torque (GTT) [kN m]</label>
+              <input type="text" id="gtt" name="gtt" required>
+          </div>
+          <div class="form-group">
+              <label for="gtn">GT rate of revolutions (GTn) [rpm]</label>
+              <input type="text" id="gtn" name="gtn" required>
+          </div>
+          <div class="form-group">
+              <label for="ggn">Gas Generator rate of revolutions (GGn) [rpm]</label>
+              <input type="text" id="ggn" name="ggn" required>
+          </div>
+          <div class="form-group">
+              <label for="ts">Starboard Propeller Torque (Ts) [kN]</label>
+              <input type="text" id="ts" name="ts" required>
+          </div>
+          <div class="form-group">
+              <label for="tp">Port Propeller Torque (Tp) [kN]</label>
+              <input type="text" id="tp" name="tp" required>
+          </div>
+          <div class="form-group">
+              <label for="t48">High Pressure (HP) Turbine exit temperature (T48) [C]</label>
+              <input type="text" id="t48" name="t48" required>
+          </div>
+          <div class="form-group">
+              <label for="t1">GT Compressor inlet air temperature (T1) [C]</label>
+              <input type="text" id="t1" name="t1" required>
+          </div>
+          <div class="form-group">
+              <label for="t2">GT Compressor outlet air temperature (T2) [C]</label>
+              <input type="text" id="t2" name="t2" required>
+          </div>
+          <div class="form-group">
+              <label for="p48">HP Turbine exit pressure (P48) [bar]</label>
+              <input type="text" id="p48" name="p48" required>
+          </div>
+          <div class="form-group">
+              <label for="p1">GT Compressor inlet air pressure (P1) [bar]</label>
+              <input type="text" id="p1" name="p1" required>
+          </div>
+          <div class="form-group">
+              <label for="p2">GT Compressor outlet air pressure (P2) [bar]</label>
+              <input type="text" id="p2" name="p2" required>
+          </div>
+          <div class="form-group">
+              <label for="pexh">GT exhaust gas pressure (Pexh) [bar]</label>
+              <input type="text" id="pexh" name="pexh" required>
+          </div>
+          <div class="form-group">
+              <label for="tic">Turbine Injection Control (TIC) [%]</label>
+              <input type="text" id="tic" name="tic" required>
+          </div>
+          <div class="form-group">
+              <label for="mf">Fuel flow (mf) [kg/s]</label>
+              <input type="text" id="mf" name="mf" required>
+          </div>
+  
+          <button type="submit" class="submit-button">Submit</button>
+          <br><br><br>
+          <div class="form-group">
+            <label for="output" style="font-weight: bold;"><b>Output</b></label>
+            <input type="text" id="output" name="output" required>
+        </div>
+      </form>
+  
+      
+  <!-- Portfolio Section -->
+  <div class="w3-padding-64 w3-content" id="photos">
+    <h2 class="w3-text-light-grey">Excess Energy Consumption</h2>
+    <hr style="width:200px" class="w3-opacity">
+    <h5 class="w3-text-light-grey">This is used to predict the excess energy which is going to be consumed and is predicted based on the behavioral
+        patterns of the vessel.Inputs from users are taken such as vessel speed,engine rpm and payload etc,the output is the excess energy required.
+        The model predicting is trained using many cases and compares the current behavioral patterns with the basic pattern of energy usgae and calculates
+        the output accurately.<br>
+        For Operational-Modes enter 1 for Cruising and 2 for Idle.
+</h5>
+<form id="operationalForm">
+  <div class="form-group">
+      <label for="vessel_speed">Vessel Speed in Kmph</label>
+      <input type="text" id="vessel_speed" name="vessel_speed" required>
+  </div>
+  <div class="form-group">
+      <label for="engine_rpm">Engine RPM</label>
+      <input type="text" id="engine_rpm" name="engine_rpm" required>
+  </div>
+  <div class="form-group">
+      <label for="water_flow">Water Flow in Kmph</label>
+      <input type="text" id="water_flow" name="water_flow" required>
+  </div>
+  <div class="form-group">
+      <label for="baseline_energy">Baseline Energy</label>
+      <input type="text" id="baseline_energy" name="baseline_energy" required>
+  </div>
+  <div class="form-group">
+      <label for="air_flow">Air Flow</label>
+      <input type="text" id="air_flow" name="air_flow" required>
+  </div>
+  <div class="form-group">
+      <label for="cargo_load">Cargo Load in Kgs</label>
+      <input type="text" id="cargo_load" name="cargo_load" required>
+  </div>
+  <div class="form-group">
+      <label for="temperature">Temperature in C</label>
+      <input type="text" id="temperature" name="temperature" required>
+  </div>
+  <div class="form-group">
+      <label for="operational_mode">Operational Mode</label>
+      <input type="text" id="operational_mode" name="operational_mode" required>
+  </div>
+  <div class="form-group">
+      <label for="propulsion_efficiency">Propulsion system efficiency</label>
+      <input type="text" id="propulsion_efficiency" name="propulsion_efficiency" required>
+  </div>
+
+  <button type="submit" class="submit-button">Submit</button>
+  <br><br><br>
+          <div class="form-group">
+            <label for="output" style="font-weight: bold;"><b>Output</b></label>
+            <input type="text" id="output" name="output" required></div>
+</form>
+
+
+
+  <!-- Contact Section -->
+  <div class="w3-padding-64 w3-content w3-text-grey" id="contact">
+    <h2 class="w3-text-light-grey">Route Optimization</h2>
+    <hr style="width:200px" class="w3-opacity">
+    <h5 class="w3-text-light-grey">This helps you find the Estimated time for you to reach your destination.Give the required locations in 
+      latitude and longitude along with average speed of the vessel.
+  </h5>
+  <form id="locationForm">
+    <div class="form-group">
+        <label for="current_latitude">Current Latitude</label>
+        <input type="text" id="current_latitude" name="current_latitude" required>
+    </div>
+    <div class="form-group">
+        <label for="current_longitude">Current Longitude</label>
+        <input type="text" id="current_longitude" name="current_longitude" required>
+    </div>
+    <div class="form-group">
+        <label for="destination_latitude">Destination Latitude</label>
+        <input type="text" id="destination_latitude" name="destination_latitude" required>
+    </div>
+    <div class="form-group">
+        <label for="destination_longitude">Destination Longitude</label>
+        <input type="text" id="destination_longitude" name="destination_longitude" required>
+    </div>
+    <div class="form-group">
+      <label for="speed">Speed</label>
+      <input type="text" id="speed" name="speed" required>
+  </div>
+
+    <button type="submit" class="submit-button">Submit</button>
+    <br><br><br>
+          <div class="form-group">
+            <label for="output" style="font-weight: bold;"><b>Output</b></label>
+            <input type="text" id="output" name="output" required></div>
+</form>
+
+<div id="output" class="output-box">
+    <!-- Output will be displayed here -->
+</div>
+    
+  <!-- End Contact Section -->
+  </div>
+  
+    
+
+<!-- END PAGE CONTENT -->
+</div>
+
+</body>
+</html>
